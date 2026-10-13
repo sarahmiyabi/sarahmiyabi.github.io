@@ -24,9 +24,14 @@
         {% assign sorted = site.data.projects | sort: "date" | reverse %}
         {% for p in sorted %}
         <article class="project-card">
-          <h3><a href="/projects/{{ p.id }}/">{{ p.title }}</a></h3>
+          <a class="wrapper" href="/projects/{{ p.id }}/">
+            <img src="{{ p.image }}" alt="Screenshot of {{ p.title }}">
+          </a>
+          <div class="title">
+            <h3>{{ p.title }}</h3>
           <p>{{ p.subtitle }}</p>
           <p class="tags">{{ p.tools | join: " · " }}</p>
+          </div>
         </article>
         {% endfor %}
       </div>

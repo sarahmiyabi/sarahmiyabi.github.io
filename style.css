@@ -21,24 +21,65 @@ body {
 
 /* ---------- Sidebar navigation (desktop) ---------- */
 header {
-  position: fixed;            /* stays in place while the content scrolls */
+  position: fixed;
   top: 0;
   left: 0;
   width: var(--nav-width);
   height: 100vh;
   background: var(--red-dark);
-  overflow-y: auto;           /* scrolls by itself if there are many projects */
+  overflow-y: auto;
 }
 
-nav #home {
-    font-size: xx-large;
-    font-weight: bolder;
+/* NEW: topbar contains the site name + burger */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2rem 0;
+}
+
+/* CHANGED: replaces the old "nav #home" rule */
+#home {
+  color: var(--text-on-red);
+  text-decoration: none;
+  font-size: xx-large;
+  font-weight: bolder;
+  padding: 0.75rem 1.5rem;
+}
+
+/* NEW: burger hidden on desktop */
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 5px 0;
+  background: var(--text-on-red);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.burger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 nav {
   display: flex;
-  flex-direction: column;     /* vertical stack */
-  padding: 2rem;
+  flex-direction: column;
+  padding: 0 2rem 2rem;      /* CHANGED: no top padding, the topbar has it */
 }
 
 nav a {
@@ -47,7 +88,8 @@ nav a {
   padding: 0.75rem 1.5rem;
 }
 
-nav a:hover {
+nav a:hover,
+#home:hover {
   font-weight: bolder;
 }
 
@@ -63,18 +105,13 @@ footer {
 }
 
 /* ---------- Centered titles ---------- */
-h1, h2 {
+h1 {
   text-align: center;
 }
 
 #hero {
   text-align: center;
   padding: 4rem 0;
-}
-
-.subtitle,
-.tags {
-  text-align: center;
 }
 
 .project-page img {
@@ -89,37 +126,104 @@ footer {
   opacity: 0.7;
 }
 
-/* ---------- Phones and small screens: nav goes to the top ---------- */
+/* ---------- Styling of the project section on home ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  padding: 0;
+}
+
+.project-card .wrapper {
+  display: block;
+}
+
+.project-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card div.title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--red-hover);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover div.title,
+.project-card:focus-within div.title {   /* NEW: keyboard / touch */
+  opacity: 1;
+}
+
+#projects a {
+  text-decoration: none;
+  color: var(--text-on-red);
+}
+
+/* ---------- Phones and small screens: burger dropdown ---------- */
 @media (max-width: 800px) {
   header {
-    position: sticky;         /* still sticks to the top while scrolling */
+    position: sticky;
     top: 0;
     width: 100%;
     height: auto;
+    max-height: 100vh;
     z-index: 10;
   }
 
+  .topbar {
+    padding: 0 0.5rem 0 1.5rem;
+  }
+
+  #home {
+    font-size: x-large;
+    padding: 1rem 0;
+  }
+
+  .burger {
+    display: block;
+  }
+
   nav {
-    flex-direction: row;      /* horizontal bar */
-    padding: 0;
-    overflow-x: auto;         /* swipe sideways if the links don't fit */
+    display: none;             /* closed by default */
+    padding: 0 0 1rem;
+  }
+
+  nav.open {
+    display: flex;
   }
 
   nav a {
-    white-space: nowrap;
-    padding: 1rem;
-    border-left: none;
-    border-bottom: 3px solid transparent;
+    padding: 0.9rem 1.5rem;
+    border-top: 1px solid rgba(247, 236, 240, 0.15);
   }
 
-  nav a:hover,
   nav a[aria-current="page"] {
-    border-bottom-color: var(--red-accent);
+    border-left: 4px solid var(--red-accent);
   }
 
   main,
   footer {
     margin-left: 0;
     padding: 1.5rem 1rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }

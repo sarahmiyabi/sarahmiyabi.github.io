@@ -1,6 +1,14 @@
 <header>
-  <nav>
+  <div class="topbar">
     <a id="home" href="/">Portfolio</a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <nav id="main-nav">
     {% assign sorted = site.data.projects | sort: "date" | reverse %}
     {% for p in sorted %}
     <a class="project" href="/projects/{{ p.id }}/"{% if page.project_id == p.id %} aria-current="page"{% endif %}>{{ p.title }}</a>
