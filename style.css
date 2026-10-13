@@ -1,5 +1,5 @@
 :root {
-  --nav-width: 240px;
+  --nav-width: 400px;
   --red-dark: #5a0b14;
   --red-hover: #7d1522;
   --red-accent: #e8a0a8;
@@ -35,7 +35,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 2rem 0;
+  padding: 2rem 3rem 0;
 }
 
 /* CHANGED: replaces the old "nav #home" rule */
@@ -79,7 +79,7 @@ header {
 nav {
   display: flex;
   flex-direction: column;
-  padding: 0 2rem 2rem;      /* CHANGED: no top padding, the topbar has it */
+  padding: 0 3rem 2rem;      /* CHANGED: no top padding, the topbar has it */
 }
 
 nav a {
@@ -129,13 +129,15 @@ footer {
 /* ---------- Styling of the project section on home ---------- */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(300px, 600px)); /* 2 cartes max, entre 300 et 550px */
+  justify-content: center;                                   /* collé à droite si trop d'espace */
+  gap: 1rem;
 }
 
 .project-card {
   position: relative;
   overflow: hidden;
-  margin: 10px;
+  margin: 0;               /* le gap s'occupe déjà de l'espacement */
   padding: 0;
 }
 
@@ -176,7 +178,7 @@ footer {
 }
 
 /* ---------- Phones and small screens: burger dropdown ---------- */
-@media (max-width: 800px) {
+@media (max-width: 1300px) {
   header {
     position: sticky;
     top: 0;
@@ -223,7 +225,11 @@ footer {
     padding: 1.5rem 1rem;
   }
 
+}
+
+@media (max-width: 700px) {
   .project-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 550px);
+    justify-content: center;
   }
 }
