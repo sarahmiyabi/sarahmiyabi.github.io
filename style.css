@@ -26,7 +26,6 @@ header {
   left: 0;
   width: var(--nav-width);
   height: 100vh;
-  background: var(--red-dark);
   overflow-y: auto;
 }
 
@@ -114,10 +113,27 @@ h1 {
   padding: 4rem 0;
 }
 
-.project-page img {
-  display: block;
-  max-width: 100%;
+.project-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1rem;
+  max-width: 816px;          /* 2 columns max */
   margin: 1.5rem auto;
+}
+
+.project-images img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+/* Alone on its line: take the full width */
+.project-images img:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.project-page {
+  text-align: center;
 }
 
 footer {
