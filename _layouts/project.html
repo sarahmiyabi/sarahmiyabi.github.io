@@ -8,17 +8,19 @@
   <meta name="description" content="{{ p.subtitle }}">
   <link rel="stylesheet" href="/style.css">
 </head>
-<body>
+<body{% if p.bg_color %} style="--bg: {{ p.bg_color }};"{% endif %}>
   {% include header.html %}
 
   <main class="project-page">
     <h1>Project : {{ p.title }}</h1>
     <p class="subtitle">{{ p.subtitle }}</p>
-    <p class="tags">{{ p.date }} · {{ p.tools | join: " · " }}</p>
+    <p class="tags">{{ p.tools | join: " · " }}</p>
 
-    {% if p.image %}
-    <img src="{{ p.image }}" alt="Screenshot of {{ p.title }}">
-    {% endif %}
+  <div class="project-images">
+  {% for img in p.images %}
+  <img src="{{ img }}" alt="{{ p.title }} - image {{ forloop.index }}">
+  {% endfor %}
+  </div>
 
     <h2>Overview</h2>
     <p>{{ p.overview }}</p>
