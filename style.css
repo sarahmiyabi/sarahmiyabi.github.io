@@ -38,20 +38,17 @@ nav #home {
 nav {
   display: flex;
   flex-direction: column;     /* vertical stack */
-  padding: 2rem 0;
+  padding: 2rem;
 }
 
 nav a {
   color: var(--text-on-red);
   text-decoration: none;
   padding: 0.75rem 1.5rem;
-  border-left: 4px solid transparent;
-  transition: background 0.2s, border-color 0.2s;
 }
 
 nav a:hover {
-  background: var(--red-hover);
-  border-left-color: var(--red-accent);
+  font-weight: bolder;
 }
 
 nav a[aria-current="page"] {
