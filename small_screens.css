@@ -1,0 +1,56 @@
+/* ---------- Phones and small screens: burger dropdown ---------- */
+@media (max-width: 1300px) {
+  header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    z-index: 10;
+  }
+
+  .topbar {
+    padding: 0 0.5rem 0 1.5rem;
+  }
+
+  #home {
+    font-size: x-large;
+    padding: 1rem 0;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  nav {
+    display: none;             
+    padding: 0 0 1rem;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    padding: 0.9rem 1.5rem;
+    border-top: 1px solid rgba(247, 236, 240, 0.15);
+  }
+
+  nav a[aria-current="page"] {
+    border-left: 4px solid var(--red-accent);
+  }
+
+  main,
+  footer {
+    margin-left: 0;
+    padding: 1.5rem 1rem;
+  }
+
+}
+
+@media (max-width: 700px) {
+  .project-grid {
+    grid-template-columns: minmax(0, 550px);
+    justify-content: center;
+  }
+}

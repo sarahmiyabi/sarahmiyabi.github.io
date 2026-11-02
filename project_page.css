@@ -1,0 +1,27 @@
+.project-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1rem;
+  max-width: 816px;          /* 2 columns max */
+  margin: 1.5rem auto;
+}
+
+.project-images img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+/* Alone on its line: take the full width */
+.project-images img:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.project-page {
+  text-align: center;
+}
+
+img {
+    max-width: 816px;
+    width: 100%
+}

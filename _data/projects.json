@@ -52,12 +52,15 @@
     "date": "2025-03",
     "tools": ["AfterEffects"],
     "cover": "/assets/images/cover_postprod.png",
-    "images": ["/assets/images/autooot.gif","/assets/images/ouiii.gif"],
+    "images": ["/assets/images/cover_postprod.png"],
     "overview": "Conception et animation d'une interface pour un court-métrage",
     "challenges": "Travailler avec une contrainte de temps en duo",
     "learned": "...",
     "repo": "",
-    "demo": ""
+    "demo": "",
+    "video_img":"/assets/images/postprod3.png",
+    "video":"https://www.youtube.com/watch?v=dpxposxY10o",
+    "video_title":"AI_love.you [Court-métrage IMAC 2]"
   },
   {
     "id": "communication",
@@ -70,6 +73,26 @@
     "images": ["/assets/images/arg_press.png"],
     "overview": "Conception d'un arg",
     "challenges": "Travailler avec une contrainte de temps en duo",
+    "learned": "...",
+    "repo": "",
+    "demo": ""
+  },
+  {
+    "id": "ux-ui",
+    "title": "Web Design",
+    "bg_color": "#0D0D0C",
+    "subtitle": "Bibliothéque de ressources liéer aux politiques bancaires",
+    "date": "2026-06",
+    "tools": ["SharePooint","Figma","Visual Studio Code"],
+    "cover": "/assets/images/cover_uxui.png",
+    "images": ["/assets/images/cover_uxui.png"],
+    "overview": "BNP Paribas est un le premier groupe européen dans le secteur banquaire, avec plus de ",
+    "challenges": "Travailler avec une contrainte de temps en duo",
+    "text":{
+      "About the Client":"BNP Paribas is the first finance group in Europe",
+      "Project Chanllenge": "The web site is lacking stucture",
+      "Solution" : "An automated experiances using no-code option through SharePoint limitation"
+    },
     "learned": "...",
     "repo": "",
     "demo": ""

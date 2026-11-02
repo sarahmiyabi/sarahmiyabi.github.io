@@ -6,13 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ p.title }} | {{ site.title }}</title>
   <meta name="description" content="{{ p.subtitle }}">
+  <link rel="stylesheet" href="/project_page.css">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body{% if p.bg_color %} style="--bg: {{ p.bg_color }};"{% endif %}>
   {% include header.html %}
 
   <main class="project-page">
-    <h1>Project : {{ p.title }}</h1>
+    <h1>{{ p.title }}</h1>
     <p class="subtitle">{{ p.subtitle }}</p>
     <p class="tags">{{ p.tools | join: " · " }}</p>
 
@@ -22,19 +23,12 @@
   {% endfor %}
   </div>
 
-    <h2>Overview</h2>
-    <p>{{ p.overview }}</p>
-
-    <h2>Challenges</h2>
-    <p>{{ p.challenges }}</p>
-
-    <h2>What I learned</h2>
-    <p>{{ p.learned }}</p>
-
     <p>
       {% if p.repo != "" %}<a href="{{ p.repo }}">Source code</a>{% endif %}
       {% if p.demo != "" %}· <a href="{{ p.demo }}">Live demo</a>{% endif %}
+      {% if p.video != "" %} <a href="{{ p.video }}"><img src="{{ p.video_img }}" alt="{{ p.video_title }}"></a> {% endif %}
     </p>
+
   </main>
 
   {% include footer.html %}

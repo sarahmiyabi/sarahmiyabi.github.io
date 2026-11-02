@@ -1,14 +1,17 @@
-:root {
-  --nav-width: 400px;
-  --red-dark: #5a0b14;
-  --red-hover: #7d1522;
-  --red-accent: #e8a0a8;
-  --text-on-red: #f7ecec;
-  --bg: #5a0b14;
-  --text: #f7ecec;
-}
+@import url(root.css);
+@import url(small_screens.css);
+
 
 * { box-sizing: border-box; }
+
+#contact a{
+  color:white;
+  text-decoration: none;
+}
+
+#contact a:hover{
+  text-decoration: underline;
+}
 
 body {
   margin: 0;
@@ -29,7 +32,7 @@ header {
   overflow-y: auto;
 }
 
-/* NEW: topbar contains the site name + burger */
+/* topbar contains the site name + burger */
 .topbar {
   display: flex;
   align-items: center;
@@ -37,7 +40,6 @@ header {
   padding: 2rem 3rem 0;
 }
 
-/* CHANGED: replaces the old "nav #home" rule */
 #home {
   color: var(--text-on-red);
   text-decoration: none;
@@ -46,7 +48,7 @@ header {
   padding: 0.75rem 1.5rem;
 }
 
-/* NEW: burger hidden on desktop */
+/* burger hidden on desktop */
 .burger {
   display: none;
   background: none;
@@ -78,7 +80,7 @@ header {
 nav {
   display: flex;
   flex-direction: column;
-  padding: 0 3rem 2rem;      /* CHANGED: no top padding, the topbar has it */
+  padding: 0 3rem 2rem;     
 }
 
 nav a {
@@ -117,7 +119,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 1rem;
-  max-width: 816px;          /* 2 columns max */
+  max-width: 816px;       
   margin: 1.5rem auto;
 }
 
@@ -146,14 +148,14 @@ footer {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 600px)); /* 2 cartes max, entre 300 et 550px */
-  justify-content: center;                                   /* collé à droite si trop d'espace */
+  justify-content: center;                                  
   gap: 1rem;
 }
 
 .project-card {
   position: relative;
   overflow: hidden;
-  margin: 0;               /* le gap s'occupe déjà de l'espacement */
+  margin: 0;      
   padding: 0;
 }
 
@@ -184,68 +186,11 @@ footer {
 }
 
 .project-card:hover div.title,
-.project-card:focus-within div.title {   /* NEW: keyboard / touch */
+.project-card:focus-within div.title { 
   opacity: 1;
 }
 
 #projects a {
   text-decoration: none;
   color: var(--text-on-red);
-}
-
-/* ---------- Phones and small screens: burger dropdown ---------- */
-@media (max-width: 1300px) {
-  header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: auto;
-    max-height: 100vh;
-    z-index: 10;
-  }
-
-  .topbar {
-    padding: 0 0.5rem 0 1.5rem;
-  }
-
-  #home {
-    font-size: x-large;
-    padding: 1rem 0;
-  }
-
-  .burger {
-    display: block;
-  }
-
-  nav {
-    display: none;             /* closed by default */
-    padding: 0 0 1rem;
-  }
-
-  nav.open {
-    display: flex;
-  }
-
-  nav a {
-    padding: 0.9rem 1.5rem;
-    border-top: 1px solid rgba(247, 236, 240, 0.15);
-  }
-
-  nav a[aria-current="page"] {
-    border-left: 4px solid var(--red-accent);
-  }
-
-  main,
-  footer {
-    margin-left: 0;
-    padding: 1.5rem 1rem;
-  }
-
-}
-
-@media (max-width: 700px) {
-  .project-grid {
-    grid-template-columns: minmax(0, 550px);
-    justify-content: center;
-  }
 }
