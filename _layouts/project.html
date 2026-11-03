@@ -2,34 +2,36 @@
 {% assign p = site.data.projects | where: "id", page.project_id | first %}
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ p.title }} | {{ site.title }}</title>
-  <meta name="description" content="{{ p.subtitle }}">
-  <link rel="stylesheet" href="/project_page.css">
-  <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="/small_screens.css">
+  {% include head.html title=p.title description=p.subtitle css="project_page.css" %}
 </head>
 <body{% if p.bg_color %} style="--bg: {{ p.bg_color }};"{% endif %}>
   {% include header.html %}
 
-  <main class="project-page">
+    <main class="project-page">
     <h1>{{ p.title }}</h1>
     <p class="subtitle">{{ p.subtitle }}</p>
     <p class="tags">{{ p.tools | join: " · " }}</p>
 
-  <div class="project-images">
-  {% for img in p.images %}
-  <img src="{{ img }}" alt="{{ p.title }} - image {{ forloop.index }}">
-  {% endfor %}
-  </div>
+    <div class="project-images">
+      {% for img in p.images %}
+      <img src="{{ img }}" alt="{{ p.title }} - image {{ forloop.index }}">
+      {% endfor %}
+    </div>
+
+    <section class="project-text">
+      {% for item in p.text %}
+      <div class="text-block">
+        <p><strong>{{ item[0] }}</strong></p>
+        <p>{{ item[1] }}</p>
+      </div>
+      {% endfor %}
+    </section>
 
     <p>
       {% if p.repo != "" %}<a href="{{ p.repo }}">Source code</a>{% endif %}
       {% if p.demo != "" %}· <a href="{{ p.demo }}">Live demo</a>{% endif %}
       {% if p.video != "" %} <a href="{{ p.video }}"><img src="{{ p.video_img }}" alt="{{ p.video_title }}"></a> {% endif %}
     </p>
-
   </main>
 
   {% include footer.html %}

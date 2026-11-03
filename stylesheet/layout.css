@@ -1,0 +1,6 @@
+/* Content pushed to the right of the sidebar */
+main,
+footer {
+  margin-left: var(--nav-width);
+  padding: 2rem 3rem;
+}

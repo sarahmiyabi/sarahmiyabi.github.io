@@ -1,0 +1,56 @@
+#hero {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+/* ---------- Project section on home ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 600px));
+  justify-content: center;
+  gap: 1rem;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.project-card .wrapper { display: block; }
+
+.project-card img {
+  border-radius: 25px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card div.title {
+  border-radius: 25px;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--red-hover);
+  color: var(--bg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover div.title,
+.project-card:focus-within div.title {
+  opacity: 1;
+}
+
+#projects a {
+  text-decoration: none;
+  color: var(--light-text);
+}

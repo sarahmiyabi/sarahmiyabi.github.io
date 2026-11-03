@@ -1,8 +1,10 @@
+.project-page { text-align: center; }
+
 .project-images {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 1rem;
-  max-width: 816px;          /* 2 columns max */
+  max-width: 816px;
   margin: 1.5rem auto;
 }
 
@@ -16,12 +18,4 @@
 /* Alone on its line: take the full width */
 .project-images img:last-child:nth-child(odd) {
   grid-column: 1 / -1;
-}
-.project-page {
-  text-align: center;
-}
-
-img {
-    max-width: 816px;
-    width: 100%
 }

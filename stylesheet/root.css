@@ -3,7 +3,8 @@
   --red-dark: #5a0b14;
   --red-hover: #7d1522;
   --red-accent: #e8a0a8;
-  --text-on-red: #f7ecec;
-  --bg: #5a0b14;
-  --text: #f7ecec;
+  --text-on-red: #282727;
+  --bg: #ece2e4;
+  --text: #282727;
+  --light-text :#ece2e4;
 }
