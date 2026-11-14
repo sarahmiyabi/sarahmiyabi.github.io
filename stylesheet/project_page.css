@@ -1,5 +1,9 @@
 .project-page { text-align: center; }
 
+* {
+  color : var(--text)
+}
+
 .project-images {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));

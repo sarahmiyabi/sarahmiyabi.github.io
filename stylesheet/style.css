@@ -69,7 +69,7 @@ header {
 }
 
 #home {
-  color: var(--text-on-red);
+  color: var(--text);
   text-decoration: none;
   font-size: xx-large;
   font-weight: bolder;

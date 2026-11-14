@@ -42,9 +42,8 @@
     "cover": "/assets/images/cover_postprod.png",
     "images": ["/assets/images/cover_postprod.png"],
     "overview": "Conception et animation d'une interface pour un court-métrage",
-    "video_img":"/assets/images/postprod3.png",
     "video":"https://www.youtube.com/watch?v=dpxposxY10o",
-    "video_title":"AI_love.you [Court-métrage IMAC 2]"
+    "video_title":"Lien vers la vidéo Youtube AI_love.you [Court-métrage IMAC 2]"
   },
   {
     "id": "communication",

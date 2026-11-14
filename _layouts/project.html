@@ -4,7 +4,8 @@
 <head>
   {% include head.html title=p.title description=p.subtitle css="project_page.css" %}
 </head>
-<body{% if p.bg_color %} style="--bg: {{ p.bg_color }};"{% endif %}>
+<body>
+  <!-- {% if p.bg_color %} style="--bg: {{ p.bg_color }};"{% endif %} -->
   {% include header.html %}
 
     <main class="project-page">
@@ -26,12 +27,11 @@
       </div>
       {% endfor %}
     </section>
-
-    <p>
-      {% if p.repo != "" %}<a href="{{ p.repo }}">Source code</a>{% endif %}
-      {% if p.demo != "" %}· <a href="{{ p.demo }}">Live demo</a>{% endif %}
-      {% if p.video != "" %} <a href="{{ p.video }}"><img src="{{ p.video_img }}" alt="{{ p.video_title }}"></a> {% endif %}
-    </p>
+<p>
+  {% if p.video != "" %}
+    <a href="{{ p.video }}">Lien vers la vidéo Youtube</a>
+  {% endif %}
+</p>
   </main>
 
   {% include footer.html %}
